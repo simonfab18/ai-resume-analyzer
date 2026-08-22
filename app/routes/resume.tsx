@@ -58,26 +58,26 @@ const resume = () => {
                 <span className=" text-gray-800 text-sm font-semibold">Back to Homepage </span>
             </Link>
             </nav>
-          <div className="flex flex-row w-full max-lg:flex-col-reverse">
-              <section className="feedback-section bg-[url('/images/bg-small.svg') bg-cover h-[100vh] sticky top-0 items-center justify-center">
+          <div className="flex flex-row items-start gap-8 w-full px-8 py-8 max-lg:flex-col max-sm:px-4">
+              <section className="flex flex-col items-center justify-center w-full max-w-4xl bg-[url('/images/bg-small.svg')] bg-cover rounded-2xl p-6 lg:sticky lg:top-8 lg:max-h-[calc(100vh-4rem)]">
                   {imageUrl && resumeUrl && (
-                      <div className="animate-in fade-in duration-1000 gradient-border max-sm:m-0 h-[90%] max-wxl:h-fit w-fit">
+                      <div className="animate-in fade-in duration-1000 gradient-border max-sm:m-0 w-full lg:max-h-[calc(100vh-7rem)]">
                         <a href={resumeUrl} target="_blank" rel="noopener noreferrer">
                             <img
                                 src={imageUrl}
-                                className="w-full h-full object-contain rounded-2xl"
+                                className="w-full max-h-[900px] lg:max-h-[calc(100vh-9rem)] object-contain rounded-2xl"
                                 title="resume"
                                 />
                         </a>
                       </div>
                   )}
               </section>
-            <section className="feedback-setion">
+            <section className="flex flex-col gap-8 w-full max-w-4xl">
                 <h2 className="text-4xl !text-black font-bold">Resume Review</h2>
                 {feedback ? (
-                    <div className="flex flex-gol gap-8 animate-in fade-in duration-1000">
+                    <div className="flex flex-col gap-8 animate-in fade-in duration-1000">
                         <Summary feedback={feedback} />
-                        <ATS score={feedback.ATS.score || 0} suggestion={feedback.ATS.tips || []} />
+                        <ATS score={feedback.ATS.score || 0} suggestions={feedback.ATS.tips || []} />
                         <Details feedback={feedback} />
                     </div>
                 ) : (
